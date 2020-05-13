@@ -46,6 +46,9 @@ public interface Xid {
     /**
      * Obtain the format identifier part of the XID.
      *
+     * 通常是零，意味着使用 OSI CCR（Open Systems Interconnection Commitment, Concurrency 和 Recovery 标准）来命名；
+     * 如果使用另外一种格式，那么 formatID 应该大于零，-1 值意味着 Xid 为无效。
+     *
      * @return Format identifier. O means the OSI CCR format.
      */
     int getFormatId();
@@ -53,15 +56,16 @@ public interface Xid {
     /**
      * Obtain the global transaction identifier part of XID as an array of bytes.
      *
-     * 全局事务标识符
+     * 全局事务标识符，需要保证全局唯一
      *
      * @return Global transaction identifier.
      */
     byte[] getGlobalTransactionId();
 
     /**
-     * Obtain the transaction branch identifier part of XID as an array
-     * of bytes.
+     * Obtain the transaction branch identifier part of XID as an array of bytes.
+     *
+     * 分支事务标识符，需要保证全局唯一
      *
      * @return Global transaction identifier.
      */

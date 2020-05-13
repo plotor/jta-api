@@ -59,6 +59,8 @@ public interface XAResource {
     /**
      * Commits the global transaction specified by xid.
      *
+     * 提交事务
+     *
      * @param xid A global transaction identifier
      * @param onePhase If true, the resource manager should use a one-phase
      * commit protocol to commit the work done on behalf of xid.
@@ -132,6 +134,8 @@ public interface XAResource {
      * instance represented by the target object is the same as the
      * resouce manager instance represented by the parameter <i>xares</i>.
      *
+     * 检查当前的 XAResource 与参数是否属于同一事务资源
+     *
      * @param xares An XAResource object whose resource manager instance
      * is to be compared with the resource manager instance of the
      * target object.
@@ -145,6 +149,8 @@ public interface XAResource {
     /**
      * Ask the resource manager to prepare for a transaction commit
      * of the transaction specified in xid.
+     *
+     * 通知资源管理器准备事务的提交工作
      *
      * @param xid A global transaction identifier.
      * @return A value indicating the resource manager's vote on the
@@ -181,6 +187,8 @@ public interface XAResource {
     /**
      * Informs the resource manager to roll back work done on behalf
      * of a transaction branch.
+     *
+     * 通知资源管理器回滚事务
      *
      * @param xid A global transaction identifier.
      * @throws XAException An error has occurred. Possible XAExceptions are
